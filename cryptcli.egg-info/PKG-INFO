@@ -1,10 +1,14 @@
 Metadata-Version: 2.1
 Name: cryptcli
-Version: 0.0.0
-Summary: UNKNOWN
-Home-page: UNKNOWN
-License: UNKNOWN
+Version: 0.1.0
+Summary: The cryptcli is a python package that gives you access to cryptocurrency prices right in your terminal!
+Home-page: https://github.com/AineeJames/cryptcli
+Author: Aiden Olsen
+Author-email: olsenaiden33@gmail.com
+License: MIT
+Keywords: crypto,cli,plot
 Platform: UNKNOWN
+License-File: LICENSE.txt
 
 UNKNOWN
 

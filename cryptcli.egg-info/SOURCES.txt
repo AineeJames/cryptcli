@@ -1,3 +1,6 @@
+LICENSE.txt
+README.md
+setup.cfg
 setup.py
 cryptcli.egg-info/PKG-INFO
 cryptcli.egg-info/SOURCES.txt
