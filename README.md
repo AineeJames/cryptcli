@@ -7,10 +7,7 @@ The cryptcli is a python package that gives you access to cryptocurrency prices 
 
 ## Installation
 ```zsh
-$ git clone https://github.com/AineeJames/cryptcli.git
-$ cd cryptcli
-$ pip install .
-$ crypt hist bitcoin
+$ pip install cryptcli
 ```
 
 ## Usuage
