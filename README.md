@@ -27,18 +27,37 @@ $ crypt [COMMANDS] [ARGS]
 ```
 
 ### hist
-Arguments:
-```zsh
-$ crypt hist [cryptocurrentcy name (lowercase)]
-```
-This command will prompt you to select the interval, use the up and down arrow keys hitting enter to make a selection.
 For example, type:
 ```zsh
 $ crypt hist litecoin
 ```
-After selecting a 1Y interval, you should see something like this!
+This command will prompt you to select the interval, use the up and down arrow keys hitting enter to make a selection.
+After selecting a 1Y interval, you should see something like this:
 <img src="./pictures/litecoin-1y.png">
 
 ### price
-### hist
+For example, type:
+```zsh
+$ crypt price dogecoin
+```
+This command will display the current price of the supplied cryptocurrency argument.
+For the example above, you should see this output:
+<img src="./pictures/price-doge.png">
+
+### list
+For example, type:
+```zsh
+$ crypto list 10
+```
+This command will return a list of cryptos and their corresponding prices. The length of the list depends on the integer argument supplied.
+The command above should yeild something like this:
+<img src="./pictures/list-10.png">
+
 ### info
+For example, type:
+```zsh
+$ crypto info solana
+```
+This command returns a basic table of current values about a specific supplied cryptocurrency.
+The example command above should show something similar to this:
+<img src="./pictures/info-solana.png">
