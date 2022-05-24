@@ -11,4 +11,12 @@ $ crypt hist bitcoin
 ```
 
 ## Usuage
+For a list of commands, type:
+```
+$ crypt --help
+```
+To see specifics of each command, type:
+```
+$ crypt [COMMAND] --help
+```
   
