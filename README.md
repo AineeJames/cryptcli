@@ -2,6 +2,8 @@
 
 ## Description
 The cryptcli is a python package that gives you access to cryptocurrency prices right in your terminal!
+API: coincap api
+PACKAGES: typer, rich, plotext, inquirer 
 
 ## Installation
 ```bash
