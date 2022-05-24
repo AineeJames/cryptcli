@@ -15,7 +15,7 @@ setup(
     author='Aiden Olsen',
     author_email='olsenaiden33@gmail.com',
     url='https://github.com/AineeJames/cryptcli',
-    download_url='https://github.com/AineeJames/cryptcli/releases/tag/v0.1.0',
+    download_url='https://github.com/AineeJames/cryptcli/releases/tag/v0.2.0',
     keywords=['crypto', 'cli', 'plot'],
     packages=find_packages(),
     install_requires=[
