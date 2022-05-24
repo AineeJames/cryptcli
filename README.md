@@ -1,14 +1,14 @@
-## cryptcli
+# cryptcli
 
-# Description
+## Description
 The cryptcli is a python package that gives you access to cryptocurrency prices right in your terminal!
 
-# Installation
+## Installation
 ```bash
-git clone ...
-pip install .
-crypt hist bitcoin
+$ git clone https://github.com/AineeJames/cryptcli.git
+$ pip install .
+$ crypt hist bitcoin
 ```
 
-# Usuage
+## Usuage
   
