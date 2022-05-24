@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: cryptcli
-Version: 0.1.0
+Version: 0.2.0
 Summary: The cryptcli is a python package that gives you access to cryptocurrency prices right in your terminal!
 Home-page: https://github.com/AineeJames/cryptcli
 Download-URL: https://github.com/AineeJames/cryptcli/releases/tag/v0.1.0
