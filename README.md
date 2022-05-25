@@ -47,7 +47,7 @@ For the example above, you should see this output:
 ### list
 For example, type:
 ```zsh
-$ crypto list 10
+$ crypt list 10
 ```
 This command will return a list of cryptos and their corresponding prices. The length of the list depends on the integer argument supplied.
 The command above should yeild something like this:
@@ -56,7 +56,7 @@ The command above should yeild something like this:
 ### info
 For example, type:
 ```zsh
-$ crypto info solana
+$ crypt info solana
 ```
 This command returns a basic table of current values about a specific supplied cryptocurrency.
 The example command above should show something similar to this:
