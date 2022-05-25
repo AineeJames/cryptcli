@@ -129,6 +129,7 @@ def hist(cryptos: List[str]):
     pltx.ticks_color("white")
     pltx.ticks_style("bold")
     pltx.xlabel(f"Time ({interval['data']})")
+    pltx.xfrequency(0)
     pltx.ylabel("Price (USD)")
     pltTitle = f"{interval['data']} price range of"
     for idx, crypto in enumerate(cryptos):
