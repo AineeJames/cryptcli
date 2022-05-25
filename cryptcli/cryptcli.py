@@ -1,5 +1,5 @@
 import typer
-from typing import List
+from typing import List, Optional
 from rich.console import Console
 from rich.table import Table
 import requests, json, time
@@ -64,7 +64,7 @@ def price(crypto: str):
     print()
 
 @app.command()
-def list(number: int):
+def list(num: Optional[int] = 10):
     """
     lists out the top crypto prices
     """
@@ -76,7 +76,7 @@ def list(number: int):
     data = json.loads(text)['data']
 
     for idx, crypto in enumerate(data):
-        if (idx >= number):
+        if (idx >= num):
             break
         console.print(f"({idx + 1}) {crypto['id']} : ${crypto['priceUsd']}")
         time.sleep(0.01)
