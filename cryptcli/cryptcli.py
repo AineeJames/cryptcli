@@ -1,4 +1,5 @@
 import typer
+from typing import List
 from rich.console import Console
 from rich.table import Table
 import requests, json, time
@@ -81,7 +82,7 @@ def list(number: int):
         time.sleep(0.01)
 
 @app.command()
-def hist(crypto: str):
+def hist(cryptos: List[str]):
     """
     displays pricing graph for a certain interval
     """
@@ -106,25 +107,33 @@ def hist(crypto: str):
         case "6M":
             convertedRange = "h6"
 
-    resp = requests.get(f"https://api.coincap.io/v2/assets/{crypto}/history?interval={convertedRange}")
-    if (resp.status_code != 200):
-        console.print(f"[bold red blink]Error: reponse code {resp.status_code}...[/ bold red blink]")
-        return
-    text = resp.text
-    data = json.loads(text)['data']
+    for crypto in cryptos:
+        resp = requests.get(f"https://api.coincap.io/v2/assets/{crypto}/history?interval={convertedRange}")
+        if (resp.status_code != 200):
+            console.print(f"[bold red blink]Error: reponse code {resp.status_code}...[/ bold red blink]")
+            return
+        text = resp.text
+        data = json.loads(text)['data']
 
-    prices = []
-    for idx, instance in enumerate(data):
-        prices.append(float(instance['priceUsd']))
+        prices = []
+        for idx, instance in enumerate(data):
+            prices.append(float(instance['priceUsd']))
+        
+        pltx.plot(prices, label=f"price of {crypto}")
     
-    pltx.plot(prices, label=f"price of {crypto}")
     pltx.canvas_color(236)
     pltx.axes_color(236)
     pltx.ticks_color("white")
     pltx.ticks_style("bold")
     pltx.xlabel(f"Time ({interval['data']})")
     pltx.ylabel("Price (USD)")
-    pltx.title(f"{interval['data']} price range of {crypto}")
+    pltTitle = f"{interval['data']} price range of"
+    for idx, crypto in enumerate(cryptos):
+        if idx < len(cryptos) - 1:
+            pltTitle += f" {crypto},"
+        else:
+            pltTitle += f" and {crypto}."
+    pltx.title(pltTitle)
     pltx.show()
 
 if __name__ == "__main__":
