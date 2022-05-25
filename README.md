@@ -34,6 +34,10 @@ $ crypt hist litecoin
 This command will prompt you to select the interval, use the up and down arrow keys hitting enter to make a selection.
 After selecting a 1Y interval, you should see something like this:
 <img src="./pictures/litecoin-1y.png">
+You can also compare two cryptocurrencies prices at the same time by typing:
+```zsh
+$ crypt hist [CRYPTO1] [CRYPTO2]
+```
 
 ### price
 For example, type:
