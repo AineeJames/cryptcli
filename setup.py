@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='cryptcli',
-    version='0.2.0',
+    version='0.2.1',
     license='MIT',
     description='The cryptcli is a python package that gives you access to cryptocurrency prices right in your terminal!',
     long_description=long_description,
@@ -15,7 +15,7 @@ setup(
     author='Aiden Olsen',
     author_email='olsenaiden33@gmail.com',
     url='https://github.com/AineeJames/cryptcli',
-    download_url='https://github.com/AineeJames/cryptcli/releases/tag/v0.2.0',
+    download_url='https://github.com/AineeJames/cryptcli/releases/tag/v0.2.1',
     keywords=['crypto', 'cli', 'plot'],
     packages=find_packages(),
     install_requires=[
