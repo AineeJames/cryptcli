@@ -86,6 +86,9 @@ def hist(cryptos: List[str]):
     """
     displays pricing graph for a certain interval
     """
+    if (len(cryptos) > 2):
+        console.print("[red bold]At this time, you can only graph two cryptos at a time...[/ red bold]")
+        return
     questions = [
       inquirer.List('data',
                     message="Range",
@@ -107,7 +110,7 @@ def hist(cryptos: List[str]):
         case "6M":
             convertedRange = "h6"
 
-    for crypto in cryptos:
+    for idx, crypto in enumerate(cryptos):
         resp = requests.get(f"https://api.coincap.io/v2/assets/{crypto}/history?interval={convertedRange}")
         if (resp.status_code != 200):
             console.print(f"[bold red blink]Error: reponse code {resp.status_code}...[/ bold red blink]")
@@ -116,10 +119,10 @@ def hist(cryptos: List[str]):
         data = json.loads(text)['data']
 
         prices = []
-        for idx, instance in enumerate(data):
+        for instance in data:
             prices.append(float(instance['priceUsd']))
         
-        pltx.plot(prices, label=f"price of {crypto}")
+        pltx.plot(prices, label=f"price of {crypto}", yside = "left" if idx == 0 else "right")
     
     pltx.canvas_color(236)
     pltx.axes_color(236)
