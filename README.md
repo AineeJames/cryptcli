@@ -51,7 +51,8 @@ For the example above, you should see this output:
 ### list
 For example, type:
 ```zsh
-$ crypt list 10
+$ crypt list
+$ crypt list --num 10
 ```
 This command will return a list of cryptos and their corresponding prices. The length of the list depends on the integer argument supplied.
 The command above should yeild something like this:
