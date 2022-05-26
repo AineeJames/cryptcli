@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: cryptcli
-Version: 0.2.1
+Version: 0.2.2
 Summary: The cryptcli is a python package that gives you access to cryptocurrency prices right in your terminal!
 Home-page: https://github.com/AineeJames/cryptcli
 Download-URL: https://github.com/AineeJames/cryptcli/releases/tag/v0.2.1
@@ -48,6 +48,10 @@ $ crypt hist litecoin
 This command will prompt you to select the interval, use the up and down arrow keys hitting enter to make a selection.
 After selecting a 1Y interval, you should see something like this:
 <img src="./pictures/litecoin-1y.png">
+You can also compare two cryptocurrencies prices at the same time by typing:
+```zsh
+$ crypt hist [CRYPTO1] [CRYPTO2]
+```
 
 ### price
 For example, type:
@@ -61,7 +65,8 @@ For the example above, you should see this output:
 ### list
 For example, type:
 ```zsh
-$ crypt list 10
+$ crypt list
+$ crypt list --num 10
 ```
 This command will return a list of cryptos and their corresponding prices. The length of the list depends on the integer argument supplied.
 The command above should yeild something like this:

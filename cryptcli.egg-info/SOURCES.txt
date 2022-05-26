@@ -4,6 +4,7 @@ setup.cfg
 setup.py
 cryptcli/__init__.py
 cryptcli/cryptcli.py
+cryptcli/test_main.py
 cryptcli.egg-info/PKG-INFO
 cryptcli.egg-info/SOURCES.txt
 cryptcli.egg-info/dependency_links.txt
