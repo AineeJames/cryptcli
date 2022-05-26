@@ -142,10 +142,8 @@ def hist(cryptos: List[str]):
 
 @app.command()
 def live(crypto: str):
-    priceVals = []
+    priceVals = [None]
     timeCount = 0
-    upperLim: float = 0
-    lowerLim: float = 0
     while True:
         resp = requests.get(f"https://api.coincap.io/v2/assets/{crypto}")
         if (resp.status_code != 200):
@@ -153,34 +151,24 @@ def live(crypto: str):
             return
         text = resp.text
         data = json.loads(text)['data']
-        priceVals.append(float(data['priceUsd']))
-        if len(priceVals) == 1:
-            lowerLim = float(data['priceUsd'])
-            upperLim = lowerLim + 1
-        if float(data['priceUsd']) > upperLim:
-            upperLim = float(data['priceUsd'])
-        elif float(data['priceUsd']) < lowerLim:
-            lowerLim = float(data['priceUsd'])
+        priceVals.append(data['priceUsd'])
 
-        pltx.clt()
-        pltx.cld()
-        
         pltx.canvas_color(236) 
         pltx.axes_color(236)
         pltx.ticks_color("white")
         pltx.ticks_style("bold")
         pltx.xlabel(f"Time elepsed: {timeCount}s")
-        pltx.ylabel("Price (USD)")
-        percentGain = round((priceVals[len(priceVals) - 1] - priceVals[0]) / priceVals[0] * 100, 2)
-        pltx.title(f"Live price chart of {crypto} : {percentGain}%")
-
-        pltx.ylim(upperLim, lowerLim)
-        pltx.xlim(0 if len(priceVals) == 1 else 1, len(priceVals))
         pltx.xfrequency(0)
-        pltx.plot(priceVals, label=f"Price of {crypto}", color = "red" if percentGain < 0 else "green")
+        pltx.ylabel("Price (USD)")
+        pltx.title(f"Live price chart of {crypto}.")
+
+        pltx.clt()
+        pltx.cld()
+
+        pltx.plot(priceVals, label=f"Price of {crypto}")
         pltx.show()
-        pltx.sleep(5)
-        timeCount += 5
+
+        time.sleep(5)
 
 
 if __name__ == "__main__":
