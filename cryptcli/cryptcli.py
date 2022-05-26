@@ -160,7 +160,6 @@ def live(crypto: str):
         if (resp.status_code != 200):
             #console.print(f"[bold red blink]Error: reponse code {resp.status_code}...[/ bold red blink]")
             #return
-            print(f"Missed a response from the API @ {timeCount}...")
             priceVals.append(priceVals[len(priceVals) - 1]) # append the prev value
         else:
             text = resp.text
