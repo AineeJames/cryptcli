@@ -121,8 +121,8 @@ def hist(cryptos: List[str]):
         prices = []
         for instance in data:
             prices.append(float(instance['priceUsd']))
-        
-        pltx.plot(prices, label=f"price of {crypto}", yside = "left" if idx == 0 else "right")
+        price_up = (prices[-1] - prices[0]) > 0 
+        pltx.plot(prices, label=f"price of {crypto}", yside = "left" if idx == 0 else "right", color = "green" if price_up else "red+")
     
     pltx.canvas_color(236)
     pltx.axes_color(236)
