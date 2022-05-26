@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='cryptcli',
-    version='0.2.1',
+    version='0.2.2',
     license='MIT',
     description='The cryptcli is a python package that gives you access to cryptocurrency prices right in your terminal!',
     long_description=long_description,
