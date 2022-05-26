@@ -14,6 +14,14 @@ def getResp(crypto: str):
     resp = requests.get(url)
     return resp
 
+def secFormat(seconds: int):
+    seconds = seconds % (24 * 3600)
+    hour = seconds // 3600
+    seconds %= 3600
+    minutes = seconds // 60
+    seconds %= 60
+    return "%d:%02d:%02d" % (hour, minutes, seconds)
+
 @app.command()
 def info(crypto: str):
     """
@@ -174,6 +182,7 @@ def live(crypto: str):
         pltx.ticks_color("white")
         pltx.ticks_style("bold")
         pltx.xlabel(f"Time elepsed: {round(time.time() - startTime, 1)}s")
+        pltx.xlabel(f"Time elapsed: {secFormat(round(time.time() - startTime, 0))}")
         pltx.ylabel("Price (USD)")
         percentGain = round((priceVals[len(priceVals) - 1] - priceVals[0]) / priceVals[0] * 100, 2)
         pltx.title(f"Live price chart of {crypto} : {percentGain}%")
