@@ -146,6 +146,7 @@ def live(crypto: str):
     timeCount = 0
     upperLim: float = 0
     lowerLim: float = 0
+    startTime = time.time()
     while True:
         resp = requests.get(f"https://api.coincap.io/v2/assets/{crypto}")
         if (resp.status_code != 200):
@@ -172,7 +173,7 @@ def live(crypto: str):
         pltx.axes_color(236)
         pltx.ticks_color("white")
         pltx.ticks_style("bold")
-        pltx.xlabel(f"Time elepsed: {timeCount}s")
+        pltx.xlabel(f"Time elepsed: {round(time.time() - startTime, 1)}s")
         pltx.ylabel("Price (USD)")
         percentGain = round((priceVals[len(priceVals) - 1] - priceVals[0]) / priceVals[0] * 100, 2)
         pltx.title(f"Live price chart of {crypto} : {percentGain}%")
