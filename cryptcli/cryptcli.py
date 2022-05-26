@@ -149,18 +149,21 @@ def live(crypto: str):
     while True:
         resp = requests.get(f"https://api.coincap.io/v2/assets/{crypto}")
         if (resp.status_code != 200):
-            console.print(f"[bold red blink]Error: reponse code {resp.status_code}...[/ bold red blink]")
-            return
-        text = resp.text
-        data = json.loads(text)['data']
-        priceVals.append(float(data['priceUsd']))
-        if len(priceVals) == 1:
-            lowerLim = float(data['priceUsd'])
-            upperLim = lowerLim + 1
-        if float(data['priceUsd']) > upperLim:
-            upperLim = float(data['priceUsd'])
-        elif float(data['priceUsd']) < lowerLim:
-            lowerLim = float(data['priceUsd'])
+            #console.print(f"[bold red blink]Error: reponse code {resp.status_code}...[/ bold red blink]")
+            #return
+            print(f"status code badddd @ {timeCount}")
+            priceVals.append(priceVals[len(priceVals) - 1]) # append the prev value
+        else:
+            text = resp.text
+            data = json.loads(text)['data']
+            priceVals.append(float(data['priceUsd']))
+            if len(priceVals) == 1:
+                lowerLim = float(data['priceUsd'])
+                upperLim = lowerLim + 0.00001
+            if float(data['priceUsd']) > upperLim:
+                upperLim = float(data['priceUsd'])
+            elif float(data['priceUsd']) < lowerLim:
+                lowerLim = float(data['priceUsd'])
 
         pltx.clt()
         pltx.cld()
@@ -179,8 +182,8 @@ def live(crypto: str):
         pltx.xfrequency(0)
         pltx.plot(priceVals, label=f"Price of {crypto}", color = "red" if percentGain < 0 else "green")
         pltx.show()
-        pltx.sleep(5)
-        timeCount += 5
+        pltx.sleep(1)
+        timeCount += 1
 
 
 if __name__ == "__main__":
