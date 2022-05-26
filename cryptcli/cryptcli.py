@@ -109,7 +109,7 @@ def hist(cryptos: List[str]):
             convertedRange = "m15"
         case "6M":
             convertedRange = "h6"
-
+    colors = [["green","red+"],["yellow","blue"]]
     for idx, crypto in enumerate(cryptos):
         resp = requests.get(f"https://api.coincap.io/v2/assets/{crypto}/history?interval={convertedRange}")
         if (resp.status_code != 200):
@@ -122,7 +122,7 @@ def hist(cryptos: List[str]):
         for instance in data:
             prices.append(float(instance['priceUsd']))
         price_up = (prices[-1] - prices[0]) > 0 
-        pltx.plot(prices, label=f"price of {crypto}", yside = "left" if idx == 0 else "right", color = "green" if price_up else "red+")
+        pltx.plot(prices, label=f"price of {crypto}", yside = "left" if idx == 0 else "right", color = colors[idx][0] if price_up else colors[idx][1])
     
     pltx.canvas_color(236)
     pltx.axes_color(236)
