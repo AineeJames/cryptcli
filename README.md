@@ -23,7 +23,7 @@ $ crypt [COMMAND] --help
 ## Commands
 ```zsh
 $ crypt [COMMANDS] [ARGS]
-  [COMMANDS] = info, list, hist, price
+  [COMMANDS] = info, list, hist, price, live
 ```
 
 ### hist
@@ -66,3 +66,10 @@ $ crypt info solana
 This command returns a basic table of current values about a specific supplied cryptocurrency.
 The example command above should show something similar to this:
 <img src="./pictures/info-solana.png">
+
+### live
+For example, try typing:
+```zsh
+$ crypt info bitcoin
+```
+This command will chart our the live prices of a certain cryptocurrency.
